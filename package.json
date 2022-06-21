@@ -1,0 +1,33 @@
+{
+    "name": "twitch-chat-stats",
+    "version": "0.1.0",
+    "description": "Statistics for the twitch's chat",
+    "repository": "https://github.com/stevancorre/twitch-chat-stats.git",
+    "private": true,
+    "author": {
+        "name": "Stévan Corre",
+        "email": "me@stevancorre.com",
+        "url": "https://stevancorre.com"
+    },
+    "scripts": {
+        "start": "tsup --watch",
+        "build": "yarn lint && tsup && cpy public/* dist --flat",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "devDependencies": {
+        "@types/node": "^16.11.41",
+        "@types/react": "^18.0.14",
+        "@typescript-eslint/eslint-plugin": "^5.29.0",
+        "@typescript-eslint/parser": "^5.29.0",
+        "eslint": "^8.18.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.7.1",
+        "typescript": "^4.7.4"
+    },
+    "dependencies": {
+        "cpy-cli": "^4.1.0",
+        "tsup": "^6.1.2"
+    }
+}

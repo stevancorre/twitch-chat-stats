@@ -1,0 +1,27 @@
+{
+    "root": true,
+    "env": {
+        "node": true
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "overrides": [
+        {
+            "files": "*.ts",
+            "parser": "@typescript-eslint/parser",
+            "extends": [
+                "plugin:@typescript-eslint/eslint-recommended",
+                "plugin:@typescript-eslint/recommended"
+            ]
+        }
+    ],
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": 2
+    }
+}
