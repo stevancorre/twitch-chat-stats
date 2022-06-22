@@ -1,6 +1,8 @@
 import { htmlToElement } from "../helpers/domHelper";
 import { injectStats, removeStats } from "./stats";
 
+const LocalStorageKeyId = "twitch_chat_stats__enabled";
+
 const UISwitchId = "twitch-chat-stats-toggle";
 
 const UI = `
@@ -74,6 +76,7 @@ function bindEvents(): void {
     for (const toggle of toggles) {
         toggle.addEventListener("change", () => {
             removeStats();
+            storeState(false);
 
             if (!toggle.checked) return;
 
@@ -84,10 +87,14 @@ function bindEvents(): void {
     // bind event for chat toggle
     const chatToggle: HTMLInputElement = toggles[toggles.length - 1];
     chatToggle.addEventListener("change", () => {
+        storeState(chatToggle.checked);
+
         if (chatToggle.checked) {
             injectStats();
         }
     });
+
+    chatToggle.checked = getState();
 }
 
 function uncheckTogglesAllThenCheck(elementToCheck: HTMLInputElement): void {
@@ -108,4 +115,12 @@ function listToggles(): HTMLInputElement[] {
     }
 
     return toggles;
+}
+
+export function storeState(enabled: boolean): void {
+    localStorage.setItem(LocalStorageKeyId, String(enabled));
+}
+
+function getState(): boolean {
+    return localStorage.getItem(LocalStorageKeyId) === "true";
 }

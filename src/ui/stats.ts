@@ -1,4 +1,5 @@
 import { htmlToElement } from "../helpers/domHelper";
+import { storeState } from "./option";
 
 const UIStatsId = "twitch-chat-stats-panel";
 
@@ -81,7 +82,10 @@ export function injectStats(): void {
 
 function bindEvents(element: HTMLElement): void {
     // bind close
-    element.querySelector("button")!.addEventListener("click", removeStats);
+    element.querySelector("button")!.addEventListener("click", () => {
+        removeStats();
+        storeState(false);
+    });
 }
 
 export function removeStats(): void {
