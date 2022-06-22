@@ -1,4 +1,5 @@
 let lastMessagesCount: number | undefined;
+let lastReturnValue: number | undefined;
 
 export function getMessagesCountLastSecond(): number | undefined {
     const messagesCount: number = document.getElementsByClassName("chat-line__message").length;
@@ -7,8 +8,12 @@ export function getMessagesCountLastSecond(): number | undefined {
         return;
     }
 
-    const messagesCountLastSecond: number = messagesCount - lastMessagesCount;
+    lastReturnValue = messagesCount - lastMessagesCount;
     lastMessagesCount = messagesCount;
 
-    return messagesCountLastSecond;
+    return peekMessagesCountLastSecond();
+}
+
+export function peekMessagesCountLastSecond(): number | undefined {
+    return lastReturnValue;
 }

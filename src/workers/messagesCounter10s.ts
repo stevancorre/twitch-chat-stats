@@ -25,3 +25,7 @@ export function getMessagesCountLast10Seconds(): number | undefined {
 
     return lastMessagesCountIn10Seconds;
 }
+
+export function peekMessagesCountLast10Seconds(): number | undefined {
+    return lastMessagesCountIn10Seconds;
+}

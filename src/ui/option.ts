@@ -122,7 +122,9 @@ function uncheckTogglesAllThenCheck(elementToCheck: HTMLInputElement): void {
 
 function listToggles(): HTMLInputElement[] {
     // list all toggles (video/ad/chat) (3 last ones)
-    const elements = document.querySelectorAll("[data-a-target=player-settings-menu] input.tw-toggle__input");
+    const elements = document.querySelectorAll(
+        "[data-a-target=player-settings-menu] input.tw-toggle__input",
+    );
 
     const toggles: HTMLInputElement[] = [];
     for (let i = elements.length - 3; i < elements.length; i++) {
