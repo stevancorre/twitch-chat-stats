@@ -19,6 +19,8 @@ const UI = `
     </div>
 `;
 
+let firstLaunch = false;
+
 // twitch settings dialog is created dynamically
 // that's why i can't just add the chat stats option
 // directly in a div and voilà.
@@ -95,6 +97,19 @@ function bindEvents(): void {
     });
 
     chatToggle.checked = getState();
+
+    // please don't read this part x)
+    // for some reason i can't explain, i need to
+    // first open an other stat panel otherwhise
+    // the chat panel won't show. i have no clue
+    // why but it's working just fine and i need
+    // to do it only once, so that's ok
+    if (!firstLaunch) {
+        toggles[0].click();
+        toggles[0].click();
+
+        firstLaunch = true;
+    }
 }
 
 function uncheckTogglesAllThenCheck(elementToCheck: HTMLInputElement): void {
