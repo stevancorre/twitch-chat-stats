@@ -22,11 +22,17 @@ const UI = `
 // a new dialog is generated each time the user open
 // the settings so i have to add/remove the option
 // each time the user open "Advanced" options
-export const injectOption = () => {
+export function injectOption(): void {
     let element: HTMLElement | null;
 
     document.addEventListener("mouseup", (event: MouseEvent) => {
         if (event.target === null) return;
+
+        const settingsChildCount: number = document.querySelectorAll(".settings-menu-button-component")[1].getElementsByTagName('*').length;
+        if (settingsChildCount === 5 && element !== null) {
+            element = null;
+            return;
+        }
 
         // check if the user clicked on the "Advanced options" button
         const target: HTMLElement = event.target as HTMLElement;
@@ -40,7 +46,7 @@ export const injectOption = () => {
 
         // if option already exists, just remove it
         // otherwhise, create it
-        if (element) {
+        if (element !== null) {
             element.remove();
             element = null;
         } else {
@@ -52,7 +58,9 @@ export const injectOption = () => {
             requestAnimationFrame(() => {
                 element = htmlToElement(UI);
                 root.append(element);
+
+                bindEvents();
             });
         }
     });
-};
+}
