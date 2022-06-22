@@ -1,4 +1,5 @@
 import { htmlToElement } from "../helpers/domHelper";
+import { injectStats, removeStats } from "./stats";
 
 const UISwitchId = "twitch-chat-stats-toggle";
 
@@ -28,7 +29,9 @@ export function injectOption(): void {
     document.addEventListener("mouseup", (event: MouseEvent) => {
         if (event.target === null) return;
 
-        const settingsChildCount: number = document.querySelectorAll(".settings-menu-button-component")[1].getElementsByTagName('*').length;
+        const settingsChildCount: number = document
+            .querySelectorAll(".settings-menu-button-component")[1]
+            .getElementsByTagName("*").length;
         if (settingsChildCount === 5 && element !== null) {
             element = null;
             return;
@@ -70,6 +73,8 @@ function bindEvents(): void {
     const toggles: HTMLInputElement[] = listToggles();
     for (const toggle of toggles) {
         toggle.addEventListener("change", () => {
+            removeStats();
+
             if (!toggle.checked) return;
 
             uncheckTogglesAllThenCheck(toggle);
@@ -78,7 +83,11 @@ function bindEvents(): void {
 
     // bind event for chat toggle
     const chatToggle: HTMLInputElement = toggles[toggles.length - 1];
-    chatToggle.addEventListener("change", () => { });
+    chatToggle.addEventListener("change", () => {
+        if (chatToggle.checked) {
+            injectStats();
+        }
+    });
 }
 
 function uncheckTogglesAllThenCheck(elementToCheck: HTMLInputElement): void {
