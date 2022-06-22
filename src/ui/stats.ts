@@ -1,4 +1,6 @@
+import capitalize from "capitalize";
 import { htmlToElement } from "../helpers/domHelper";
+import { ChatStats } from "../types/chatStats";
 import { storeState } from "./option";
 
 const UIStatsId = "twitch-chat-stats-panel";
@@ -60,6 +62,12 @@ const UI = `
         </div>
     </div>`;
 
+const UITableRow = `
+    <tr class="ScTableRow-sc-18rdmqn-0 epLaWL tw-table-row">
+        <td class="InjectLayout-sc-588ddc-0 knzRFc tw-table-cell">%KEY%</td>
+        <td class="InjectLayout-sc-588ddc-0 knzRFc tw-table-cell">%VALUE%</td>
+    </tr>`;
+
 export function injectStats(): void {
     const root: Element | null = document.querySelector(".video-player__overlay");
     if (root === null)
@@ -77,6 +85,7 @@ export function injectStats(): void {
 
     const element: HTMLElement = htmlToElement(UI);
     root.append(element);
+    updateStats({});
     bindEvents(element);
 }
 
@@ -91,4 +100,22 @@ function bindEvents(element: HTMLElement): void {
 export function removeStats(): void {
     const existingUI: Element | null = document.querySelector(`#${UIStatsId}`);
     existingUI?.remove();
+}
+
+export function updateStats(stats: ChatStats): void {
+    const root: Element | null = document.querySelector(`#${UIStatsId}`);
+    if (root === null) return;
+
+    const body: HTMLTableSectionElement = root.querySelector("tbody")!;
+    body.innerHTML = "";
+
+    for (const [key, value] of Object.entries(stats)) {
+        const keyString: string = key.replace(/([A-Z]|[0-9][^ ])/g, " $1").trim();
+
+        const tr: string = UITableRow.replace("%KEY%", capitalize(keyString)).replace(
+            "%VALUE%",
+            value === undefined ? "--" : value,
+        );
+        body.appendChild(htmlToElement(tr));
+    }
 }
