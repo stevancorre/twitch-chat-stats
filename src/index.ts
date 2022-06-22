@@ -1,1 +1,3 @@
-console.log("Ok");
+import { injectOption } from "./ui/option";
+
+injectOption();
