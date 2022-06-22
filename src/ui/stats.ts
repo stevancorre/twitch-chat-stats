@@ -74,7 +74,14 @@ export function injectStats(): void {
         (existingUI as HTMLButtonElement).click();
     }
 
-    root.append(htmlToElement(UI));
+    const element: HTMLElement = htmlToElement(UI);
+    root.append(element);
+    bindEvents(element);
+}
+
+function bindEvents(element: HTMLElement): void {
+    // bind close
+    element.querySelector("button")!.addEventListener("click", removeStats);
 }
 
 export function removeStats(): void {
