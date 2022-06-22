@@ -64,3 +64,39 @@ export function injectOption(): void {
         }
     });
 }
+
+function bindEvents(): void {
+    // make so only one toggle is checked at the same time
+    const toggles: HTMLInputElement[] = listToggles();
+    for (const toggle of toggles) {
+        toggle.addEventListener("change", () => {
+            if (!toggle.checked) return;
+
+            uncheckTogglesAllThenCheck(toggle);
+        });
+    }
+
+    // bind event for chat toggle
+    const chatToggle: HTMLInputElement = toggles[toggles.length - 1];
+    chatToggle.addEventListener("change", () => { });
+}
+
+function uncheckTogglesAllThenCheck(elementToCheck: HTMLInputElement): void {
+    for (const toggle of listToggles()) {
+        toggle.checked = false;
+    }
+
+    elementToCheck.checked = true;
+}
+
+function listToggles(): HTMLInputElement[] {
+    // list all toggles (video/ad/chat)
+    const root = document.querySelector("[data-a-target=player-settings-menu]")!;
+
+    const toggles: HTMLInputElement[] = [];
+    for (let i = 3; i < 6; i++) {
+        toggles.push((root.childNodes[i] as HTMLElement).querySelector("input")!);
+    }
+
+    return toggles;
+}
