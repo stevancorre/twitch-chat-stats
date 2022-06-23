@@ -1,4 +1,3 @@
-import { StatProvider } from "../provider";
-import { messagesCounter } from "./messagesCounter";
+import { MessagesCounter } from "./messagesCounter";
 
-export const providers: StatProvider[] = [messagesCounter];
+export const providers = [MessagesCounter];
