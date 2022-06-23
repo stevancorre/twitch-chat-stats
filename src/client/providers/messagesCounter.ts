@@ -11,7 +11,24 @@ export class MessagesCounter extends StatProvider {
     private messagesCount = 0;
 
     public tick(): void {
-        this.messagesCountOn3s.push(this.messagesCount);
+        console.log(this.messagesCountOn3s);
+
+        if (this.messagesCount === 0) {
+            if (this.messagesCountOn3s.length === 0) {
+                this.messagesCountOn3s.push(0);
+            } else if (this.messagesCountOn3s.length === 1) {
+                this.messagesCountOn3s[0] = 0;
+            } else {
+                this.messagesCountOn3s.shift();
+            }
+        } else {
+            if (this.messagesCountOn3s.length === 1 && this.messagesCountOn3s[0] === 0) {
+                this.messagesCountOn3s[0] = this.messagesCount;
+            } else {
+                this.messagesCountOn3s.push(this.messagesCount);
+            }
+        }
+
         this.messagesCountOn10s.push(this.messagesCount);
         this.messagesCount = 0;
 
@@ -23,7 +40,8 @@ export class MessagesCounter extends StatProvider {
             this.messagesCountOn10s.shift();
         }
 
-        this.lastMessageCountOn1s = this.messagesCountOn3s.reduce((acc, x) => acc + x) / 3;
+        this.lastMessageCountOn1s =
+            this.messagesCountOn3s.reduce((acc, x) => acc + x) / this.messagesCountOn3s.length;
         this.lastMessageCountOn10s = this.messagesCountOn10s.reduce((acc, x) => acc + x);
     }
 
