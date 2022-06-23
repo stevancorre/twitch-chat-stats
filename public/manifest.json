@@ -13,7 +13,7 @@
                 "https://*.twitch.tv/*"
             ],
             "js": [
-                "index.js"
+                "index.min.js"
             ],
             "run_at": "document_end"
         }
