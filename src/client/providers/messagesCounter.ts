@@ -11,8 +11,6 @@ export class MessagesCounter extends StatProvider {
     private messagesCount = 0;
 
     public tick(): void {
-        console.log(this.messagesCountOn3s);
-
         if (this.messagesCount === 0) {
             if (this.messagesCountOn3s.length === 0) {
                 this.messagesCountOn3s.push(0);

@@ -37,8 +37,6 @@ export function startClientListening() {
 export function startClient() {
     if (tmi !== undefined) throw "Attempting to start an already started client";
 
-    console.log("new instance started");
-
     const username: string = window.location.href
         .replace(/https?:\/\/.*twitch.*\/(\w+)(.*)/g, "$1")
         .trim();
