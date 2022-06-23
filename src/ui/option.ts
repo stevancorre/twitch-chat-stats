@@ -94,6 +94,8 @@ function bindEvents(): void {
         if (chatToggle.checked) {
             injectStats();
         }
+
+        window.getSelection()?.removeAllRanges();
     });
 
     chatToggle.checked = getState();
