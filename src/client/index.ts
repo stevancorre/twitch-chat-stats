@@ -40,7 +40,7 @@ export function startClient() {
     console.log("new instance started");
 
     const username: string = window.location.href
-        .replace(/https?:\/\/.*twitch.*\/(.*)/g, "$1")
+        .replace(/https?:\/\/.*twitch.*\/(\w+)(.*)/g, "$1")
         .trim();
     if (username === "") return;
 
