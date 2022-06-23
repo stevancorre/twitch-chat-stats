@@ -8,7 +8,7 @@ const UIStatsId = "twitch-chat-stats-panel";
 
 const UI = `
     <div class="tw-root--theme-dark tw-root--hover" id="${UIStatsId}">
-        <div class="InjectLayout-sc-588ddc-0 dpwvQM scrollable-area scrollable-area--suppress-scroll-x" data-simplebar="init">
+        <div class="InjectLayout-sc-588ddc-0 dpwvQM scrollable-area scrollable-area--suppress-scroll-x" data-simplebar="init" style="height:fit-content;">
             <div class="simplebar-track vertical" style="visibility: hidden;">
                 <div class="simplebar-scrollbar"></div>
             </div>
