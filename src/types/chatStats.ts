@@ -1,4 +1,4 @@
 export interface ChatStats {
-    messagesPerSecond: number | undefined;
-    messagesPer10Seconds: number | undefined;
+    messagesPerSecond: string | undefined;
+    messagesPer10Seconds: string | undefined;
 }

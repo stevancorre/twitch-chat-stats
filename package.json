@@ -19,6 +19,7 @@
         "@types/capitalize": "^2.0.0",
         "@types/node": "^16.11.41",
         "@types/react": "^18.0.14",
+        "@types/tmi.js": "^1.8.1",
         "@typescript-eslint/eslint-plugin": "^5.29.0",
         "@typescript-eslint/parser": "^5.29.0",
         "clean-webpack-plugin": "^4.0.0",
@@ -37,6 +38,7 @@
         "webpack-dev-server": "^4.9.2"
     },
     "dependencies": {
-        "capitalize": "^2.0.4"
+        "capitalize": "^2.0.4",
+        "tmi.js": "^1.8.5"
     }
 }

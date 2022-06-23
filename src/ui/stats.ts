@@ -1,7 +1,7 @@
 import capitalize from "capitalize";
+import { getClientStats } from "../client";
 import { htmlToElement } from "../helpers/domHelper";
 import { ChatStats } from "../types/chatStats";
-import { peekWorkerStats } from "../workers";
 import { storeState } from "./option";
 
 const UIStatsId = "twitch-chat-stats-panel";
@@ -88,7 +88,7 @@ export function injectStats(): void {
     root.append(element);
     bindEvents(element);
 
-    updateStats(peekWorkerStats());
+    updateStats(getClientStats());
 }
 
 function bindEvents(element: HTMLElement): void {

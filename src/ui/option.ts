@@ -35,7 +35,7 @@ export function injectOption(): void {
 
         const settingsChildCount: number = document
             .querySelectorAll(".settings-menu-button-component")[1]
-            .getElementsByTagName("*").length;
+            ?.getElementsByTagName("*").length;
         if (settingsChildCount === 5 && element !== null) {
             element = null;
             return;
