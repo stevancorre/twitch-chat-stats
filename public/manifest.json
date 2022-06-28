@@ -4,9 +4,6 @@
     "description": "Stats for the Twitch's chat. To access the stats panel, just click the settings icon in the video player, then go to `Advanced`.",
     "author": "Stévan Corre <me@stevancorre.com>",
     "version": "1.0",
-    "permissions": [
-        "tabs"
-    ],
     "content_scripts": [
         {
             "matches": [
