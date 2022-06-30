@@ -38,7 +38,7 @@
 
 ## Preview
 
-![Extension demo](resources/demo.gif)
+![Extension demo](resources/demo.gif)  
 *Recorded on [twitch.tv/jaklive](https://twitch.tv/jaklive)*
 
 <br>
