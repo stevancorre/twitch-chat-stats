@@ -20,24 +20,36 @@
     <a href="https://twitch.tv/">
         <img src="https://img.shields.io/badge/Twitch-9146ff?style=for-the-badge&logo=twitch&logoColor=white">
     </a>
+    <a href="https://chrome.google.com/webstore/detail/twitch-chat-stats/cibpobmdeonkgkljhapfjcdcjaomdffn">
+        <img src="https://img.shields.io/badge/chrome%20webstore-4c8bf5?style=for-the-badge&logo=googlechrome&logoColor=white">
+    </a>
     <a href="https://paypal.me/aiixu">
         <img src="https://img.shields.io/badge/Donate-00457c?style=for-the-badge&logo=paypal&logoColor=white">
     </a>
 </p>
 
 <p align="center">
-    <a href="#">Add to chrome</a> •
+    <a href="https://chrome.google.com/webstore/detail/twitch-chat-stats/cibpobmdeonkgkljhapfjcdcjaomdffn">Add to chrome</a> •
     <a href="#preview">Preview</a> •
+    <a href="#features">Features</a> •
     <a href="#license">License</a> •
     <a href="#credits">Credits</a>
 </p>
 
-**This extension is not published to the chrome web store but will be soon**
-
-
 ## Preview
 
-**Preview is not ready yet**
+![Extension demo](resources/demo.gif)
+*Recorded on [twitch.tv/jaklive](https://twitch.tv/jaklive)*
+
+<br>
+
+## Features
+
+This extension add a new stats panel in Twitch. To open it, just go under `Settings` (on the video player) -> `Advanced` -> `Chat stats`. (see: [preview](#preview))  
+
+This panel contains:
+- The amount of messages received per second (average on up to 3 second depending on the flow)
+- The amount of messages received during the last 10 seconds
 
 <br>
 
